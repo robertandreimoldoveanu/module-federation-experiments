@@ -40,7 +40,11 @@ import "./index.scss";
 ])
 
 
-export const bootstrapReactComponent = (rootNode) => {
+export const bootstrapReactComponent = (rootNode, angularInjector) => {
+  // we can define custom hooks to get data from angular and leverage the injector
+  // and maybe even use the angular router directly or trigger change detection and stuff
+  // we could also use a shared library to share injection tokens and stuff
+  console.log(angularInjector.get('FEDERATION_TOKEN'));
   ReactDOM.createRoot(rootNode).render(
     <RouterProvider router={router} />
   );

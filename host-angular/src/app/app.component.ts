@@ -13,7 +13,11 @@ import { MicrofrontendService } from './microfrontends/microfrontend.service';
     RouterModule
   ],
   providers: [
-    MicrofrontendService
+    MicrofrontendService,
+    {
+      provide: 'FEDERATION_TOKEN',
+      useValue: 'host-angular'
+    }
   ]
 })
 export class AppComponent implements DoBootstrap{
@@ -22,6 +26,7 @@ export class AppComponent implements DoBootstrap{
   private mfService = inject(MicrofrontendService);
 
   ngDoBootstrap(appRef: ApplicationRef): void {
+    // nici nu stiu daca acest cod face ceva? wtf
     console.log('ngDoBootstrap', { appRef });
     this.mfService.initialise().then(() => {
       console.log('mfService initialised');
