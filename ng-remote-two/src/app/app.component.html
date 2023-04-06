@@ -1,0 +1,18 @@
+<div
+  class="mt-8 p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg space-x-4 text-center"
+>
+  <p class="text-xl">
+    <a routerLink="./">
+      {{ title }}
+    </a>
+  </p>
+  <hr class="mt-8" />
+  <div class="mt-8">
+    <a class="p-6 hover:text-blue-600" routerLink="./counter">Counter</a>
+    <a class="p-6 hover:text-blue-600" routerLink="./contact">Contact</a>
+  </div>
+  <hr class="mt-8" />
+  <div className="h-96 flex flex-row justify-evenly align-middle">
+    <router-outlet></router-outlet>
+  </div>
+</div>

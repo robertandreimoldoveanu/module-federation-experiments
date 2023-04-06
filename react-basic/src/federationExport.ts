@@ -1,0 +1,1 @@
+export { bootstrapReactComponent } from './App';

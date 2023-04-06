@@ -1,0 +1,1 @@
+declare module 'http://localhost:5173/assets/remoteEntry.js';
