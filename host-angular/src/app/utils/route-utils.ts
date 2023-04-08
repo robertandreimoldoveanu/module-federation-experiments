@@ -10,7 +10,6 @@ export function buildRoutes(options: Microfrontend[]): Routes {
       return url.toString().startsWith(o.routePath) ? {consumed: [url[0]]} : null;
     },
     loadChildren: () => loadRemoteModule(o).then(m => {
-      debugger;
       return m[o.ngModuleName];
     }),
   }));

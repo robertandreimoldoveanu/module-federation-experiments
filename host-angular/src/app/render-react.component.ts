@@ -27,7 +27,6 @@ export class RenderReactComponent implements AfterViewInit{
             remoteName: 'reactBasic',
             exposedModule: 'bootstrapReactComponent',
         }).then(m => {
-          debugger;
           m.bootstrapReactComponent(document.getElementById('react-app'), this._injector);
         });
 

@@ -1,10 +1,12 @@
 <div class="mx-auto mt-2 max-w-sm p-6 bg-white border border-gray-500">
   <h1 class="mb-2 text-2xl font-bold text-gray-900 text-center">{{title}}</h1>
-  <hr class="my-4 "/>
-  <div class="flex justify-around">
-    <a routerLink="./about">About</a>
-    <a routerLink="./contact">Contact</a>
+  <hr class="my-4 " />
+
+  <div class="flex">
+    <a class="block m-2" routerLink="./about">About</a>
+    <a class="block m-2" routerLink="./contact">Contact</a>
   </div>
-  <hr class="my-4"/>
+  
+  <hr class="my-4" />
   <router-outlet></router-outlet>
 </div>

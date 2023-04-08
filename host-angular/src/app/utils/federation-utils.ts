@@ -20,6 +20,9 @@ function loadRemoteEntry(remoteEntry: string): Promise<void> {
 
     const script = document.createElement('script');
     script.src = remoteEntry;
+    script.type = 'module';
+
+
 
     script.onerror = reject;
 
@@ -34,11 +37,12 @@ function loadRemoteEntry(remoteEntry: string): Promise<void> {
 
 async function lookupExposedModule<T>(remoteName: string, exposedModule: string): Promise<T> {
   // Initializes the share scope. This fills it with known provided modules from this build and all remotes
+  // const container = (window as any)[remoteName] as Container; // or get the container somewhere else
+  const newLocal = ``;
+  const container = await import('http://localhost:4201/remoteEntry.js').then((m) => {
+    return m;
+  }) as Container;
   await __webpack_init_sharing__('default');
-  // import('http://localhost:4201/remoteEntry.js').then((container) =>)
-  const container = (window as any)[remoteName] as Container; // or get the container somewhere else
-  // Initialize the container, it may provide shared modules
-  // const a = await import('ngRemoteOne');
   await container.init(__webpack_share_scopes__.default);
   const factory = await container.get(exposedModule);
   const Module = factory();
@@ -52,6 +56,14 @@ export type LoadRemoteModuleOptions = {
 };
 
 export async function loadRemoteModule(options: LoadRemoteModuleOptions): Promise<any> {
-  await loadRemoteEntry(options.remoteEntry);
+  // await loadRemoteEntry(options.remoteEntry);
   return await lookupExposedModule<any>(options.remoteName, options.exposedModule);
+}
+
+const delayFunction = (time: number) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(void 0);
+    }, time);
+  });
 }

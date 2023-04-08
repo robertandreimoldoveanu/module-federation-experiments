@@ -21,7 +21,6 @@ const viteOptions = {
 })
 export class RenderViteComponent implements AfterViewInit{
   ngAfterViewInit(): void {
-    debugger;
     loadRemoteModule(viteOptions).then(m => {
       console.log('vite module', m);
       m.bootstrapViteComponent();

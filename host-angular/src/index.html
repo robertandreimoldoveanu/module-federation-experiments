@@ -13,6 +13,12 @@
     export const myConstant = 'hello';
     console.log(import.meta);
   </script> -->
-  
+  <script type="importmap">
+    {
+      "imports": {
+        "http://localhost:4021/remoteEntry.js": "./remoteOne",
+      }
+    }
+  </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { answer } from './simple';
 
@@ -11,7 +11,8 @@ import { answer } from './simple';
   imports: [
     RouterModule,
     CommonModule
-  ]
+  ],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   title = 'ng-remote-one';
